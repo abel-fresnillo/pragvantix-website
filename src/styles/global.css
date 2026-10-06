@@ -1,0 +1,82 @@
+:root {
+  --font-body: 'Inter Variable', system-ui, sans-serif;
+  --font-display: 'Sora Variable', 'Inter Variable', system-ui, sans-serif;
+
+  --color-bg: #fbfaf7;
+  --color-surface: #ffffff;
+  --color-text: #0b2545;
+  --color-muted: #4a5d78;
+  --color-border: #d9dee6;
+  --color-accent: #0b6e78;
+  --color-accent-contrast: #ffffff;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --radius: 0.5rem;
+  --content-width: 68rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0a1628;
+    --color-surface: #11213a;
+    --color-text: #e8eef6;
+    --color-muted: #a3b3c9;
+    --color-border: #25364f;
+    --color-accent: #4fd1c5;
+    --color-accent-contrast: #0a1628;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  margin: 0 0 var(--space-2);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+a {
+  color: var(--color-accent);
+}
+
+.container {
+  width: min(100% - 2rem, var(--content-width));
+  margin-inline: auto;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button:hover,
+.button:focus-visible {
+  filter: brightness(1.1);
+}

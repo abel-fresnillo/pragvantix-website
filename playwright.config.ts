@@ -1,0 +1,11 @@
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  testDir: 'e2e',
+  webServer: {
+    command: 'npm run build && sirv dist --port 4321 --quiet',
+    url: 'http://localhost:4321/',
+    reuseExistingServer: !process.env.CI,
+  },
+  use: { baseURL: 'http://localhost:4321' },
+});
