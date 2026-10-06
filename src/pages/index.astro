@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import BookButton from '../components/BookButton.astro';
+
+const pillars = [
+  {
+    name: 'AWS Cloud',
+    summary: 'Architecture, migration and cost-optimised operations on AWS.',
+    href: '/services/aws-cloud/',
+  },
+  {
+    name: 'AI',
+    summary: 'Agentic AI solutions built on Amazon Bedrock and Claude.',
+    href: '/services/ai/',
+  },
+  {
+    name: 'Cyber Security',
+    summary: 'Security architecture and resilience for regulated environments.',
+    href: '/services/cyber-security/',
+  },
+];
+---
+
+<Base
+  title="Pragvantix | AWS cloud, AI and cyber security consulting"
+  description="Pragvantix helps regulated enterprises build secure, AI-ready cloud platforms on AWS."
+>
+  <section class="hero container">
+    <h1>Secure, AI-ready cloud for regulated enterprises.</h1>
+    <p class="lead">
+      Pragvantix pairs executive-level strategy with hands-on engineering across AWS, AI and
+      cyber security.
+    </p>
+    <BookButton />
+  </section>
+
+  <section class="container pillars" aria-labelledby="pillars-heading">
+    <h2 id="pillars-heading">What we do</h2>
+    <ul>
+      {
+        pillars.map((p) => (
+          <li data-pillar>
+            <h3>
+              <a href={p.href}>{p.name}</a>
+            </h3>
+            <p>{p.summary}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: var(--space-5) var(--space-4);
+  }
+  .lead {
+    max-width: 40rem;
+    font-size: 1.15rem;
+    color: var(--color-muted);
+    margin: 0 0 var(--space-3);
+  }
+  .pillars ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  .pillars li {
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+  .pillars h3 a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .pillars p {
+    margin: 0;
+    color: var(--color-muted);
+  }
+</style>
